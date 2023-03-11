@@ -13,11 +13,6 @@ body {
   background-color: lemonchiffon;
 }
 
-input {
-  display: none;
-}
-
-/* Label */
 label.meme-text {
   display: block;
   width: 100%;
@@ -32,13 +27,9 @@ input:checked + label.meme-text {
   background-image: url(img/cross.png);
 }
 
-.memes:not(:hover) label.meme-text {
-  background-image: none;
-}
-
 label.meme-img {
-  width: 70%;
-  height: 40vh;
+  width: 100%;
+  height: 35vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -72,9 +63,6 @@ label.meme-img[for="meme4"] {
   width: calc(100% - var(--padding));
   display: flex;
   flex-direction: column;
-}
-
-.memes:not(:hover) {
   color: blue;
 }
 
@@ -98,4 +86,50 @@ input:checked ~ .meme-img {
   max-height: 50vh;
 }
 
-@media (hover: hover) {}
+input:checked:active ~ label {
+  color: blue;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 820px) {
+  .bayan {
+    font-size: 4.8em;
+  }
+
+  label.meme-text {
+    background-size: 2rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .bayan {
+    font-size: 7em;
+  }
+
+  label.meme-text {
+    background-size: 4rem 4rem;
+  }
+
+  label.meme-img {
+    height: 32vh;
+  }
+
+  @media (hover: hover) {
+
+    .memes:hover {
+      color: black;
+    }
+
+    .memes:not(:hover) label.meme-text {
+      background-image: none;
+    }
+
+    input:hover:not(:checked) ~ .meme-text {
+      background-image: url("img/cross.png");
+    }
+
+    input:hover:not(:checked) ~ .meme-img {
+      max-height: 50vh;
+    }
+  }
+}
