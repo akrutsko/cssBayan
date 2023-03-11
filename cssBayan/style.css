@@ -17,14 +17,47 @@ input {
   display: none;
 }
 
-label {
-  flex-basis: 100%;
+/* Label */
+label.meme-text {
+  display: block;
+  width: 100%;
+  background: url(img/plus.png) right no-repeat;
+  background-size: 1rem 1rem;
   user-select: none;
-  cursor: pointer;
+  transition: all 0.3s;
 }
 
-input:checked + div label {
+input:checked + label.meme-text {
   color: black;
+  background-image: url(img/cross.png);
+}
+
+.memes:not(:hover) label.meme-text {
+  background-image: none;
+}
+
+label.meme-img {
+  width: 70%;
+  height: 40vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+label.meme-img[for="meme1"] {
+  background-image: url("img/meme1.png");
+}
+
+label.meme-img[for="meme2"] {
+  background-image: url("img/meme2.png");
+}
+
+label.meme-img[for="meme3"] {
+  background-image: url("img/meme3.png");
+}
+
+label.meme-img[for="meme4"] {
+  background-image: url("img/meme4.png");
 }
 
 .bayan {
@@ -45,10 +78,6 @@ input:checked + div label {
   color: blue;
 }
 
-.memes:not(:hover) .icon-img {
-  opacity: 0;
-}
-
 .meme > * {
   cursor: pointer;
 }
@@ -56,22 +85,6 @@ input:checked + div label {
 .meme:not(:first-child) {
   margin-top: 1rem;
   border-top: 1px solid grey;
-}
-
-.meme-text {
-  display: flex;
-}
-
-.icon-img {
-  width: 5vw;
-  height: 6vw;
-  background: url(img/plus.png) center no-repeat;
-  background-size: 5vw 3vh;
-  transition: all 0.3s;
-}
-
-.memes input:checked + .meme-text .icon-img {
-  background-image: url(img/cross.png);
 }
 
 .meme-img {
@@ -84,3 +97,5 @@ input:checked + div label {
 input:checked ~ .meme-img {
   max-height: 50vh;
 }
+
+@media (hover: hover) {}
