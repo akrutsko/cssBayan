@@ -1,0 +1,86 @@
+:root {
+  --padding: 5vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 62.5%;
+  font-weight: bold;
+  background-color: lemonchiffon;
+}
+
+input {
+  display: none;
+}
+
+label {
+  flex-basis: 100%;
+  user-select: none;
+  cursor: pointer;
+}
+
+input:checked + div label {
+  color: black;
+}
+
+.bayan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.8em;
+}
+
+.memes {
+  width: calc(100% - var(--padding));
+  display: flex;
+  flex-direction: column;
+}
+
+.memes:not(:hover) {
+  color: blue;
+}
+
+.memes:not(:hover) .icon-img {
+  opacity: 0;
+}
+
+.meme > * {
+  cursor: pointer;
+}
+
+.meme:not(:first-child) {
+  margin-top: 1rem;
+  border-top: 1px solid grey;
+}
+
+.meme-text {
+  display: flex;
+}
+
+.icon-img {
+  width: 5vw;
+  height: 6vw;
+  background: url(img/plus.png) center no-repeat;
+  background-size: 5vw 3vh;
+  transition: all 0.3s;
+}
+
+.memes input:checked + .meme-text .icon-img {
+  background-image: url(img/cross.png);
+}
+
+.meme-img {
+  display: block;
+  max-height: 0;
+  margin-inline: auto;
+  transition: all 1s;
+}
+
+input:checked ~ .meme-img {
+  max-height: 50vh;
+}
